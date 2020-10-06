@@ -1,5 +1,5 @@
 /**
- * Classe Retângulo
+ * Author: Rangel
 */
 
 public class Retangulo {
