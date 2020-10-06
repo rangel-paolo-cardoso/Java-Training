@@ -25,7 +25,7 @@ public class ExercicioFuncionario {
     System.out.print("\nWhich percentage to increase salary? ");
     funcionario.increaseSalary(sc.nextDouble());
 
-    System.out.printf("\nUpdated data: $ %.2f\n", funcionario.netSalary());
+    System.out.println("\nUpdated data: " + funcionario.toString());
 
     sc.close();
   }
