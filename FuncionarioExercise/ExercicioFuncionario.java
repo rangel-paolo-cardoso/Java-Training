@@ -11,15 +11,16 @@ public class ExercicioFuncionario {
     Locale.setDefault(Locale.US);
     Scanner sc = new Scanner(System.in);
 
-    Funcionario funcionario = new Funcionario();
     System.out.print("Name: ");
-    funcionario.name = sc.nextLine();
+    String name = sc.nextLine();
 
     System.out.print("Gross salary: ");
-    funcionario.grossSalary = sc.nextDouble();
+    double grossSalary = sc.nextDouble();
 
     System.out.print("Tax: ");
-    funcionario.tax = sc.nextDouble();
+    double tax = sc.nextDouble();
+
+    Funcionario funcionario = new Funcionario(name, grossSalary, tax);
 
     System.out.println("\nEmployee: " + funcionario.toString());
     System.out.print("\nWhich percentage to increase salary? ");
