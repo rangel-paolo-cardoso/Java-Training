@@ -8,6 +8,12 @@ public class Funcionario {
   public double grossSalary;
   public double tax;
 
+  public Funcionario(String name, double grossSalary, double tax) {
+    this.name = name;
+    this.grossSalary = grossSalary;
+    this.tax = tax;
+  }
+
   public double netSalary() {
     return this.grossSalary - tax;
   }
