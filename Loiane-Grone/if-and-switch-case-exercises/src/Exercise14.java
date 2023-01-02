@@ -42,6 +42,7 @@ public class Exercise14 {
         System.out.println("Grade 1: " + grade1);
         System.out.println("Grade 2: " + grade2);
         System.out.println("Average: " + String.format("%.2f", average));
+        System.out.println("Concept: " + concept);
         System.out.println("Status: " + status);
 
         sc.close();
