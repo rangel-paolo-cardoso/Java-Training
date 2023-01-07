@@ -5,7 +5,7 @@ public class Exercise7 {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        int theBiggest = 0;
+        int theBiggest = Integer.MIN_VALUE;
 
         for (int count = 1; count < 6; count++) {
             System.out.print("Enter the " + count + "º number: ");
