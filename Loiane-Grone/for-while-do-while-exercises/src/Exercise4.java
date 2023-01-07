@@ -1,10 +1,8 @@
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Exercise4 {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("Population A has 80,000 inhabitants.");
         System.out.println("Its annual growth rate is 3%.");
@@ -27,9 +25,7 @@ public class Exercise4 {
         System.out.println(
             "It will take "
             + years
-            + " years for population A become larger than population B"
+            + " years for population A to become larger than population B"
         );
-
-        sc.close();
     }
 }
