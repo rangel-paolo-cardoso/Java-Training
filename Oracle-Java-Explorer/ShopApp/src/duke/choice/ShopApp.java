@@ -30,6 +30,10 @@ public class ShopApp {
                 item1.description + "," + item1.price + "," + item1.size);
         System.out.println(
                 item2.description + "," + item2.price + "," + item2.size);
+        
+        Clothing[] items = new Clothing[2];
+        items[0] = item1;
+        items[1] = item2;
 
         total = (item1.price + item2.price + tax) * (1 + tax);
         System.out.println("Total = " + total);
@@ -37,13 +41,13 @@ public class ShopApp {
         int measurement = 3;
 
         switch (measurement) {
-            case 1, 2, 3:
+            case 1: case 2: case 3:
                 c1.size = "S";
                 break;
-            case 4, 5, 6:
+            case 4: case 5: case 6:
                 c1.size = "M";
                 break;
-            case 7, 8, 9:
+            case 7: case 8: case 9:
                 c1.size = "L";
                 break;
             default:
