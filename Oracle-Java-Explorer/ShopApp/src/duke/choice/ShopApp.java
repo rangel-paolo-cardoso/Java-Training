@@ -5,16 +5,12 @@ import java.util.Locale;
 public class ShopApp {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        double tax = 0.2;
-        double total = 0.0;
 
         System.out.println("Welcome to Duke Choice Shop!");
 
         Customer c1 = new Customer();
         c1.setName("Pinky");
         c1.setSize("S");
-
-        System.out.println("Customer is " + c1.getName());
 
         Clothing item1 = new Clothing();
         item1.setDescription("Blue Jacket");
@@ -42,22 +38,14 @@ public class ShopApp {
         items[2] = item3;
         items[3] = item4;
 
-        for (Clothing item : items) {
-            System.out.println(item.getDescription() + "," + item.getPrice() + "," + item.getSize());
-        }
-
         int measurement = 3;
         c1.setSize(measurement);
+        c1.addItems(items);
 
-        for (Clothing item : items) {
-            if (c1.getSize().equals(item.getSize())) {
-                total += item.getPrice();
-                System.out.println(item.getDescription() + "," + item.getPrice() + "," + item.getSize());
-                if (total > 15) {
-                    break;
-                }
-            }
+        System.out.println("Customer is " + c1.getName() + ", " + c1.getSize() + ", " + c1.getTotalClothingCost());
+
+        for (Clothing item : c1.getItems()) {
+            System.out.println("Item " + item.getDescription());
         }
-        System.out.println("Total = " + total);
     }
 }
