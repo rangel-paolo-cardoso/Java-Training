@@ -34,5 +34,29 @@ public class ShopApp {
         for (Clothing item : c1.getItems()) {
             System.out.println("Item " + item.getDescription());
         }
+
+        int average = 0;
+        int count = 0;
+
+        for (Clothing item : c1.getItems()) {
+            if (item.getSize().equals("L")) {
+                count++;
+                average += item.getPrice();
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("Count is zero, so we can't proceed with the division");
+        } else {
+            average = average / count;
+            System.out.println("Average price " + average + ", Count " + count);
+        }
+
+        // try {
+        //     average = average / count;
+        //     System.out.println("Average price " + average + ", Count " + count);
+        // } catch (ArithmeticException e) {
+        //     System.out.println("Don't divide by 0");
+        // }
     }
 }
