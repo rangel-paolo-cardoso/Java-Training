@@ -14,7 +14,7 @@ public class Exercise25 {
         while (count < numberOfPeople) {
             System.out.print("Enter the age of the " + (count + 1) + "º person: ");
             int age = sc.nextInt();
-            ageAverage += ageAverage;
+            ageAverage += age;
             count += 1;
         }
 
