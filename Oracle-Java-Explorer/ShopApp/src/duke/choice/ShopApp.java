@@ -1,5 +1,6 @@
 package duke.choice;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class ShopApp {
@@ -31,8 +32,10 @@ public class ShopApp {
 
         System.out.println("Customer is " + c1.getName() + ", " + c1.getSize() + ", " + c1.getTotalClothingCost());
 
+        Arrays.sort(c1.getItems());
+
         for (Clothing item : c1.getItems()) {
-            System.out.println("Item " + item.getDescription());
+            System.out.println("Item " + item);
         }
 
         int average = 0;
@@ -51,12 +54,5 @@ public class ShopApp {
             average = average / count;
             System.out.println("Average price " + average + ", Count " + count);
         }
-
-        // try {
-        //     average = average / count;
-        //     System.out.println("Average price " + average + ", Count " + count);
-        // } catch (ArithmeticException e) {
-        //     System.out.println("Don't divide by 0");
-        // }
     }
 }
