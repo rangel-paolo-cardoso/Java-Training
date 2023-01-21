@@ -5,7 +5,7 @@ public class Exercise9 {
         double[] c = new double[a.length];
 
         for (int i = 0; i < a.length; i++) {
-            c[i] = a[i] / (float) (b[i]);
+            c[i] = (a[i] / 10.0 * 10.0) / (b[i] / 10.0 * 10.0);
         }
 
         for (int i = 0; i < a.length; i++) {
