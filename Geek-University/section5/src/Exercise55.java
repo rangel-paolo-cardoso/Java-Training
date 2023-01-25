@@ -26,8 +26,6 @@ public class Exercise55 {
             }
         }
 
-        // System.out.println("Is " + n + " a prime number? " + isPrime);
-
         sc.close();
     }
 }
