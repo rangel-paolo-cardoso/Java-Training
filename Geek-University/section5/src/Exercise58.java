@@ -1,7 +1,7 @@
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Exercise57 {
+public class Exercise58 {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
@@ -11,7 +11,7 @@ public class Exercise57 {
 
         System.out.print("Inform an ending number: ");
         int end = sc.nextInt();
-        int amountOfPrimeNumbers = 0;
+        long sumOfPrimes = 0;
 
         boolean isPrime = true;
         for (int i = start; i <= end; i += 1) {
@@ -25,12 +25,12 @@ public class Exercise57 {
                 isPrime = false;
             }
             if (isPrime) {
-                amountOfPrimeNumbers += 1;
+                sumOfPrimes += i;
             }
             isPrime = true;
         }
 
-        System.out.printf("The amount of prime numbers between %d and %d is: %d\n", start, end, amountOfPrimeNumbers);
+        System.out.printf("The sum of the prime numbers between %d and %d is: %d\n", start, end, sumOfPrimes);
 
         sc.close();
     }
