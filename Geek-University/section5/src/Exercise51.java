@@ -22,6 +22,7 @@ public class Exercise51 {
             year += 1;
         }
 
+        System.out.println("Year: " + year);
         System.out.printf("Current salary: %.2f\n", currentSalary);
 
         sc.close();
