@@ -1,10 +1,8 @@
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Exercise61 {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
 
         int largestPalindrome = 0;
 
@@ -28,8 +26,6 @@ public class Exercise61 {
         System.out.println(
             "The largest palindrome formed by the multiplication of 2 number with 3 digits is "
             + largestPalindrome
-            );
-
-        sc.close();
+        );
     }
 }
