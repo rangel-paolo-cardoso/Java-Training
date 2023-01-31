@@ -1,10 +1,8 @@
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Exercise2 {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
 
         int[][] m = new int[10][10];
         int largestNumberOnLine5 = Integer.MIN_VALUE;
@@ -43,7 +41,5 @@ public class Exercise2 {
         System.out.println();
         System.out.println("The largest number on column 7 is " + largestNumberOnColumn7);
         System.out.println("The smallest number on column 7 is " + smallerNumberOnColumn7);
-
-        sc.close();
     }
 }
