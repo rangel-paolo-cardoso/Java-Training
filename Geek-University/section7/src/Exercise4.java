@@ -32,7 +32,7 @@ public class Exercise4 {
             System.out.printf("The numbers residing on those postions are: %d and %d\n",
                 numbers[position1], numbers[position2]
             );
-            System.out.println("The total sum is " + (numbers[position1] + numbers[position2]));
+            System.out.println("The total sum is " + sum);
         } else {
             System.out.println("Invalida entries for the array positions!");
         }
