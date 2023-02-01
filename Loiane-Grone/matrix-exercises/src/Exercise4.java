@@ -21,10 +21,10 @@ public class Exercise4 {
             switch (option) {
                 case 1:
                     System.out.print("Inform the day of the month (1-30): ");
-                    day = sc.nextInt();
+                    day = sc.nextInt() - 1;
 
                     System.out.print("Inform the hour of the day (1-24): ");
-                    hour = sc.nextInt();
+                    hour = sc.nextInt() - 1;
                     sc.nextLine();
 
                     System.out.print("Enter the name of your appointment to the agenda: ");
@@ -34,10 +34,10 @@ public class Exercise4 {
                     break;
                 case 2:
                     System.out.print("Inform the day of the month (1-30): ");
-                    day = sc.nextInt();
+                    day = sc.nextInt() - 1;
 
                     System.out.print("Inform the hour of the day (1-24): ");
-                    hour = sc.nextInt();
+                    hour = sc.nextInt() - 1;
 
                     System.out.printf("Appointment on day %d at %d hours \n", day, hour);
                     System.out.println(appointments[day][hour]);
