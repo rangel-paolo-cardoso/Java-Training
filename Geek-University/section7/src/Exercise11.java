@@ -12,8 +12,8 @@ public class Exercise11 {
 
         for (int pos = 0; pos < numbers.length; pos += 1) {
             System.out.print("Enter the" + (pos + 1) + "° floating point number: ");
-            double grade = sc.nextDouble();
-            numbers[pos] = grade;
+            double number = sc.nextDouble();
+            numbers[pos] = number;
         }
 
         for (int i = 0; i < numbers.length; i++) {
