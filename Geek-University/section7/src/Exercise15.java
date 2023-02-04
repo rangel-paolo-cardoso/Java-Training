@@ -7,7 +7,6 @@ public class Exercise15 {
         Scanner sc = new Scanner(System.in);
 
         int[] numbers = new int[20];
-        // boolean repeatedNumber = false;
 
         for (int pos = 0; pos < numbers.length; pos += 1) {
             System.out.print("Enter the" + (pos + 1) + "° value: ");
