@@ -1,10 +1,8 @@
 import java.util.Locale;
-// import java.util.Scanner;
 
 public class Exercise25 {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
-        // Scanner sc = new Scanner(System.in);
 
         int[] numbers = new int[100];
         int count = 0;
@@ -24,7 +22,5 @@ public class Exercise25 {
         for (int i = 0; i < numbers.length; i++) {
             System.out.println(numbers[i]);
         }
-
-        // sc.close();
     }
 }
