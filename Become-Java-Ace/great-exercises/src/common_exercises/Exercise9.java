@@ -1,3 +1,4 @@
+package common_exercises;
 public class Exercise9 {
     public static void main(String[] args) throws Exception {
         System.out.println(printResult());
