@@ -6,7 +6,7 @@ public class Exercise36 {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        double[] numbers = new double[10];
+        double[] numbers = new double[11];
         boolean sorted = true;
 
         for (int i = 0; i < numbers.length; i++) {
@@ -31,6 +31,26 @@ public class Exercise36 {
             for (int i = 0; i < numbers.length; i++) {
                 if (i < numbers.length - 1) {
                     if (numbers[i] > numbers[i + 1]) {
+                        sorted = false;
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            }
+            if (sorted) {
+                break;
+            }
+        }
+
+        while (true) {
+            sorted = true;
+            for (int i = 5; i < numbers.length; i++) {
+                if (i < numbers.length - 1) {
+                    if (numbers[i] < numbers[i + 1]) {
+                        double next = numbers[i + 1];
+                        numbers[i + 1] = numbers[i];
+                        numbers[i] = next;
                         sorted = false;
                         break;
                     }
