@@ -11,5 +11,6 @@ public class LibraryBook {
     String isbn13;
     String dimensions;
     int rating;
-    Date retningDate;
+    Date returnindDate;
+    boolean borrowed;
 }

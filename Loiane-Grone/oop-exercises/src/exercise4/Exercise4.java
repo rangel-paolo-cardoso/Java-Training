@@ -15,7 +15,8 @@ public class Exercise4 {
         book.isbn13 = "978-8543004792";
         book.dimensions = "28 x 20.8 x 3.8 cm";
         book.rating = 5;
-        book.retningDate = new Date();
+        book.returnindDate = new Date();
+        book.borrowed = true;
 
         System.out.println("Books tile: " + book.title);
     }
