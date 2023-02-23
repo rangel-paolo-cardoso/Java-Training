@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Exercise10 {
 
-    private static final double PI = 3.141592;
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
