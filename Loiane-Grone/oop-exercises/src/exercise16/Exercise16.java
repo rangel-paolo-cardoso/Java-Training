@@ -30,10 +30,10 @@ public class Exercise16 {
         b = sc.nextDouble();
         double multiplications = Calculator.multiply(a, b);
 
-        System.out.print("Enter a number to make division: ");
+        System.out.print("Enter a number to make the division: ");
         a = sc.nextDouble();
 
-        System.out.print("Enter another number to make division: ");
+        System.out.print("Enter another number to make the division: ");
         b = sc.nextDouble();
         double division = Calculator.divide(a, b);
 
@@ -44,11 +44,16 @@ public class Exercise16 {
         int exponent = sc.nextInt();
         double exponentiation = Calculator.raiseToThePowerOf(base, exponent);
 
+        System.out.print("Enter a number to calculate its factorial: ");
+        int n = sc.nextInt();
+        int factorial = Calculator.calculateFactorial(n);
+
         System.out.printf("Sum of %.1f %.1f = %.1f \n", a, b, sum);
         System.out.printf("Subtraction of %.1f %.1f = %.1f \n", a, b, subtraction);
         System.out.printf("Multiplication of %.1f %.1f = %.1f \n", a, b, multiplications);
         System.out.printf("Division of %.1f %.1f = %.1f \n", a, b, division);
         System.out.printf("%.1f to the power of %d = %.1f \n", base, exponent, exponentiation);
+        System.out.printf("The factorial of %d is %d \n", n, factorial);
 
         sc.close();
     }
