@@ -2,7 +2,7 @@ package exercise11;
 
 import java.util.Locale;
 
-public class Exercise7 {
+public class Exercise11 {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
 
