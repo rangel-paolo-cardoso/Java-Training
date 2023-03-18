@@ -1,10 +1,11 @@
 package exercise24;
 
 public class SavingsAccount extends BankingAccount {
-    
+
     private double dailyIncome;
 
-    public SavingsAccount() {}
+    public SavingsAccount() {
+    }
 
     public SavingsAccount(double dailyIncome) {
         this.dailyIncome = dailyIncome;
@@ -25,5 +26,10 @@ public class SavingsAccount extends BankingAccount {
 
     public void calculateNewSalary(double incomeRate) {
         this.setBalance(this.getBalance() + this.getBalance() * incomeRate);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Daily Income: " + dailyIncome + "\n";
     }
 }

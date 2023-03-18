@@ -1,12 +1,13 @@
 package exercise24;
 
 public class BankingAccount {
-    
+
     private String customerName;
     private int accountNumber;
     private double balance;
 
-    public BankingAccount() {}
+    public BankingAccount() {
+    }
 
     public BankingAccount(String customerName, int accountNumber, double balance) {
         this.customerName = customerName;
@@ -48,5 +49,12 @@ public class BankingAccount {
 
     public void deposit(double amount) {
         this.setBalance(this.getBalance() + amount);
+    }
+
+    @Override
+    public String toString() {
+        return "BankingAccount - \nCustomerName: " + customerName
+                + ", \nAccountNumber: " + accountNumber
+                + ", \nBalance: " + balance + "\n";
     }
 }

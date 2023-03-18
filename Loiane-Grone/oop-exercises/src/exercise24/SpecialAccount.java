@@ -1,10 +1,11 @@
 package exercise24;
 
 public class SpecialAccount extends BankingAccount {
-    
+
     private double limit;
 
-    public SpecialAccount() {}
+    public SpecialAccount() {
+    }
 
     public SpecialAccount(double limit) {
         this.limit = limit;
@@ -35,5 +36,10 @@ public class SpecialAccount extends BankingAccount {
                 this.setBalance(this.getBalance() - amount);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Limit: " + limit + "\n";
     }
 }
