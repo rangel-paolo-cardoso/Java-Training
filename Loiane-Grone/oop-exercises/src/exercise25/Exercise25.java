@@ -36,8 +36,4 @@ public class Exercise25 {
 
         sc.close();
     }
-
-    // static void printIncomeTaxPayment(TaxPayer taxpayer) {
-    //     System.out.println(ac);
-    // }
 }
