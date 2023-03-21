@@ -1,33 +1,34 @@
 package exercise27;
 
-public class Cylinder extends Figure3D implements SurfaceDimension, VolumetricDimension {
+public class Cylinder extends Figure3D {
 
-    private int radius;
-    private int height;
+    private double radius;
+    private double height;
 
     public Cylinder() {
         super();
     }
 
-    public Cylinder(String name, String color, int radius, int height) {
-        super(name, color);
+    public Cylinder(String name, String color, double radius, double height) {
+        this.setName(name);
+        this.setColor(color);
         this.radius = radius;
         this.height = height;
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 

@@ -1,19 +1,20 @@
 package exercise27;
 
-public class Cube extends Figure3D implements SurfaceDimension, VolumetricDimension {
+public class Cube extends Figure3D {
 
-    private int side;
+    private double side;
 
     public Cube() {
         super();
     }
 
-    public Cube(String name, String color, int side) {
-        super(name, color);
+    public Cube(String name, String color, double side) {
+        this.setName(name);
+        this.setColor(color);
         this.side = side;
     }
 
-    public int getSide() {
+    public double getSide() {
         return side;
     }
 

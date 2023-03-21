@@ -1,6 +1,6 @@
 package exercise27;
 
-public class Triangle extends Figure2D implements SurfaceDimension {
+public class Triangle extends Figure2D {
 
     private double height;
     private double base;
@@ -10,7 +10,8 @@ public class Triangle extends Figure2D implements SurfaceDimension {
     }
 
     public Triangle(String name, String color, double height, double base) {
-        super(name, color);
+        this.setName(name);
+        this.setColor(color);
         this.height = height;
         this.base = base;
     }

@@ -1,6 +1,6 @@
 package exercise27;
 
-public class Pyramid extends Figure3D implements SurfaceDimension, VolumetricDimension {
+public class Pyramid extends Figure3D {
 
     private double height;
     private double baseWidth;
@@ -11,7 +11,8 @@ public class Pyramid extends Figure3D implements SurfaceDimension, VolumetricDim
     }    
 
     public Pyramid(String name, String color, double height, double baseWidth, double baseLength) {
-        super(name, color);
+        this.setName(name);
+        this.setColor(color);
         this.height = height;
         this.baseWidth = baseWidth;
         this.baseLength = baseLength;

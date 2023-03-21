@@ -1,23 +1,24 @@
 package exercise27;
 
-public class Square extends Figure2D implements SurfaceDimension {
+public class Square extends Figure2D {
 
-    private int side;
+    private double side;
 
     public Square() {
         super();
     }
 
-    public Square(String name, String color, int side) {
-        super(name, color);
+    public Square(String name, String color, double side) {
+        this.setName(name);
+        this.setColor(color);
         this.side = side;
     }
 
-    public int getSide() {
+    public double getSide() {
         return side;
     }
 
-    public void setSide(int side) {
+    public void setSide(double side) {
         this.side = side;
     }
 

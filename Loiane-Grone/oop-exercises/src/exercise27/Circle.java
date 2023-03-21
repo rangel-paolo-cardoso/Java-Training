@@ -1,23 +1,24 @@
 package exercise27;
 
-public class Circle extends Figure2D implements SurfaceDimension {
+public class Circle extends Figure2D {
 
-    private int radius;
+    private double radius;
 
     public Circle() {
         super();
     }
 
-    public Circle(String name, String color, int radius) {
-        super(name, color);
+    public Circle(String name, String color, double radius) {
+        this.setName(name);
+        this.setColor(color);
         this.radius = radius;
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
 
