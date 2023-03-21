@@ -28,4 +28,10 @@ public abstract class GeometricFigure {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name
+        + "\nColor=" + this.color;
+    }
 }
