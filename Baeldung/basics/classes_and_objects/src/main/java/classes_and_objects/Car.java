@@ -7,6 +7,8 @@ public class Car {
     private String color;
     private int speed;
 
+    public Car() {}
+
     public Car(String type, String model, String color) {
         this.type = type;
         this.model = model;
@@ -38,7 +40,7 @@ public class Car {
         if (decrement > 0 && decrement <= this.speed) {
             this.speed -= decrement;
         } else {
-            System.out.println("DEcrement can't be negative or greater than current speed.");
+            System.out.println("Decrement can't be negative or greater than current speed.");
         }
         return this.speed;
     }
