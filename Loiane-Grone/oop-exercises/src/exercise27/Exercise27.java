@@ -18,13 +18,12 @@ public class Exercise27 {
 
         for (GeometricFigure figure : geometricFigures) {
             System.out.println("--------------------");
-            System.out.println(figure.getName());
             if (figure instanceof Figure2D) {
-                // Figure2D figure2d = (Figure2D) figure;
-                // System.out.println("Total area: " + figure2d.calculateArea() + "\n");
+                System.out.println(figure);
                 System.out.println("Total area: " + ((Figure2D) figure).calculateArea());
             } 
             if (figure instanceof Figure3D) {
+                System.out.println(figure);
                 System.out.println("Total area: " + ((Figure3D) figure).calculateArea());
                 System.out.println("Total volume: " + ((Figure3D) figure).calculateVolume());
             }
