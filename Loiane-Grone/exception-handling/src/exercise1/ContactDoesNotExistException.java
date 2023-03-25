@@ -10,6 +10,6 @@ public class ContactDoesNotExistException extends Exception {
 
     @Override
     public String toString() {
-        return "The contact with id '" + this.contactId + "' does not exist!";
+        return "\nThe contact with id '" + this.contactId + "' does not exist!\n";
     }
 }
