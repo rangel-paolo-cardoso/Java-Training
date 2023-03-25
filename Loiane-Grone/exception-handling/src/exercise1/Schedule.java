@@ -15,6 +15,7 @@ public class Schedule {
         for (int i = 0; i < this.contacts.length; i += 1) {
             if (contacts[i] == null) {
                 contacts[i] = contact;
+                System.out.println("Id: " + contact.getId());
                 break;
             }
         }
@@ -26,6 +27,6 @@ public class Schedule {
                 return contact.toString();
             }
         }
-        throw new ContactDoesNotExistException();
+        throw new ContactDoesNotExistException(id);
     }
 }

@@ -9,7 +9,6 @@ public class Contact {
         this.id = (int) (Math.random() * 1_000_000);
         this.name = name;
         this.phone = phone;
-        System.out.println("Id: " + this.getId());
     }
 
     public int getId() {
