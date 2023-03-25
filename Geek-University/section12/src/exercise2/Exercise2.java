@@ -11,7 +11,7 @@ public class Exercise2 {
         System.out.print("Enter the square side size: ");
         double size = sc.nextDouble();
 
-        Square square = new Square();
+        Square square = new Square(size);
 
         square.calculateArea();
         square.calculatePerimeter();
