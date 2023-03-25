@@ -8,8 +8,10 @@ public class Square {
     public Square() {
     }
 
-    public Square(double side) {
+    public Square(double side, double area, double perimeter) {
         this.side = side;
+        this.area = area;
+        this.perimeter = perimeter;
     }
 
     public void calculateArea() {
