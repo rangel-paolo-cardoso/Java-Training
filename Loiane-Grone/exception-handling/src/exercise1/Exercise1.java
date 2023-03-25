@@ -31,14 +31,13 @@ public class Exercise1 {
                         findContact();
                         break;
                     case 3:
+                        System.out.println("See you next time! :-)");
                         break loop_while;
                     default:
                         System.out.println("Invalid option!");
                 }
             }
         }
-
-        System.out.println("See you next time! :-)");
 
         sc.close();
     }
