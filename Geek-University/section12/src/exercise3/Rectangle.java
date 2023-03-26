@@ -29,8 +29,6 @@ public class Rectangle {
         this.perimeter = 2 * (this.width + this.legth);
     }
 
-    // 
-
     public String printInfo() {
         return "\n"
                 + "Width: " + this.width
