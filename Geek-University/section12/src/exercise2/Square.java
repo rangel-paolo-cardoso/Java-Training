@@ -8,7 +8,9 @@ public class Square {
     public Square() {
     }
 
-    public Square(double side) {}
+    public Square(double side) {
+        this.side = side;
+    }
 
     public Square(double side, double area, double perimeter) {
         this.side = side;
