@@ -8,7 +8,6 @@ import guide_to_inheritance.car.BMW;
 import guide_to_inheritance.car.Car;
 import guide_to_inheritance.car.SpaceCar;
 import guide_to_inheritance.employees.Employee;
-import guide_to_inheritance.interfaces.SpaceTraveller;
 
 public class App {
     public static void main(String[] args) {
