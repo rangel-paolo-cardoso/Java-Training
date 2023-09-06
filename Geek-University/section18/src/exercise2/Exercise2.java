@@ -15,7 +15,7 @@ public class Exercise2 {
         try {
             sc = getScanner(filePath);
             int numberOfLines = countLines(sc);
-            System.out.printf("The file you enter has %d lines%n", numberOfLines);
+            System.out.printf("The file you entered has %d lines%n", numberOfLines);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("It was not possible to read the file.");
@@ -28,7 +28,7 @@ public class Exercise2 {
         int count = 0;
         while (sc.hasNextLine()) {
             count += 1;
-            System.out.println("count: " + count);
+            sc.nextLine();
         }
         return count;
     }
