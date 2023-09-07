@@ -2,7 +2,6 @@ package exercise3;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-// import java.io.FileInputStream;
 import java.util.Scanner;
 
 public class Exercise3 {
@@ -20,6 +19,8 @@ public class Exercise3 {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("It was not possible to read the file.");
+        } finally {
+            sc.close();
         }
 
     }
