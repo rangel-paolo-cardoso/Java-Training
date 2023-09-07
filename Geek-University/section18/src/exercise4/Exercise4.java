@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
 /**
  * @author Rangel Paolo Cardoso Bomfim paolorangel1996@outlook.com
  */
@@ -37,21 +38,23 @@ public class Exercise4 {
         int vowels = 0;
         int consonants = 0;
         Map<String, Integer> letterMap = new HashMap<>();
+        StringBuilder text = new StringBuilder();
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
-            for (char letter : line.toCharArray()) {
-                vowels += switch (Character.toLowerCase(letter)) {
-                    case 'a', 'ã', 'á', 'â', 'e', 'é', 'ê',
-                            'i', 'í', 'o', 'ó', 'ô', 'õ', 'u', 'ú' -> 1;
-                    default -> 0;
-                };
-                consonants += switch (Character.toLowerCase(letter)) {
-                    case 'b', 'c', 'd', 'f', 'g', 'j', 'k', 'l',
-                            'm', 'n', 'p', 'q', 'r', 's',
-                            't', 'v', 'w', 'x', 'z' -> 1;
-                    default -> 0;
-                };
-            }
+            text.append(line);
+        }
+        for (char letter : text.toString().toCharArray()) {
+            vowels += switch (Character.toLowerCase(letter)) {
+                case 'a', 'ã', 'á', 'â', 'e', 'é', 'ê',
+                        'i', 'í', 'o', 'ó', 'ô', 'õ', 'u', 'ú' -> 1;
+                default -> 0;
+            };
+            consonants += switch (Character.toLowerCase(letter)) {
+                case 'b', 'c', 'd', 'f', 'g', 'j', 'k', 'l',
+                        'm', 'n', 'p', 'q', 'r', 's',
+                        't', 'v', 'w', 'x', 'z' -> 1;
+                default -> 0;
+            };
         }
         letterMap.put("vowelsCount", vowels);
         letterMap.put("consonantsCount", consonants);
