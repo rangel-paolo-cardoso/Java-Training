@@ -16,6 +16,7 @@ public class Exercise3 {
         try {
             sc = getScanner(path);
             int numberOfVowels = countVowels(sc);
+            System.out.printf("The number of vowels in the file you provided is %d%n", numberOfVowels);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("It was not possible to read the file.");
@@ -24,8 +25,17 @@ public class Exercise3 {
     }
 
     private static int countVowels(Scanner sc) {
-        //
-        return 1;
+        int vowelsCount = 0;
+        while (sc.hasNextLine()) {
+            String line = sc.nextLine();
+            for (char letter : line.toCharArray()) {
+                vowelsCount += switch (Character.toLowerCase(letter)) {
+                    case 'a', 'e', 'i', 'o', 'u' -> 1;
+                    default -> 0;
+                };
+            }
+        }
+        return vowelsCount;
     }
 
     private static Scanner getScanner(String path) throws FileNotFoundException {
