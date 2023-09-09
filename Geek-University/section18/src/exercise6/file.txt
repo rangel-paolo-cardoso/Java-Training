@@ -1,0 +1,3 @@
+My name is Rangel Paolo Cardoso Bomfim
+I'm 26 right now, that is, in 2023.
+The purpose of the file is to test the program's functionality.
