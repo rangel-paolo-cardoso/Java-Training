@@ -1,0 +1,3 @@
+This is another file to test the program.
+It is supposed to replace all the vowels with asteristics.
+Then, another file must be created, with the vowels already replaced. 
