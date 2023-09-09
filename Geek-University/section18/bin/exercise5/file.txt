@@ -1,0 +1,3 @@
+Rangel Paolo Cardoso Bomfim
+Hello! This is a file to teste whether the program can read the content.
+Also, to count how many times a certain character appears in this text.
