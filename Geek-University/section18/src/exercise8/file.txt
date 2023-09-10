@@ -1,0 +1,3 @@
+Another file to test the program.
+It is supposed to replace all lower case letters by upper case ones.
+The user will provide the path to the reading file, and the name for a new file.
