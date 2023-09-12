@@ -1,0 +1,3 @@
+Here is the second file.
+Its content will be used to create the third file.
+In the end, the third file must contain the content from file 1 and 2.
