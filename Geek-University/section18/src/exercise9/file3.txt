@@ -1,0 +1,7 @@
+File used to test the program.
+It will integrate with the content of the second file.
+Then, formining a third file with the content from file 1 and file 2.
+Here is the second file.
+Its content will be used to create the third file.
+In the end, the third file must contain the content from file 1 and 2.
+
