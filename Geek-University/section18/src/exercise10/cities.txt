@@ -1,0 +1,40 @@
+Rio de Janeiro                          6747815
+São Paulo                               12325232
+Salvador                                2886698
+Brasília                                3154171
+Fortaleza                               2688684
+Belo Horizonte                          2521564
+Recife                                  1653461
+Porto Alegre                            1488252
+Curitiba                                1948626
+Manaus                                  2219580
+Belém                                   1499641
+Goiânia                                 1536097
+Natal                                   877640
+Florianópolis                           508826
+João Pessoa                             817511
+Vitória                                 365855
+Campo Grande                            906092
+Maceió                                  1029129
+Santos                                  433311
+São Luís                                1110974
+Teresina                                868075
+Aracaju                                 664908
+Cuiabá                                  618124
+Macapá                                  520095
+Palmas                                  306296
+Boa Vista                               399213
+Rio Branco                              419452
+Porto Velho                             539354
+Campinas                                1243403
+São José dos Campos                     742948
+Ribeirão Preto                          711825
+São José do Rio Preto                   456471
+Sorocaba                                679292
+Londrina                                569733
+Joinville                               590466
+Uberlândia                              699097
+Feira de Santana                        614872
+Juiz de Fora                            571151
+Niterói                                 516938
+São Bernardo do Campo                   844483
