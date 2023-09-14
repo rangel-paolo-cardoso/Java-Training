@@ -15,7 +15,7 @@ public class Exercise11 {
         System.out.print("Enter the path to the first file: ");
         String path = sc.nextLine();
 
-        System.out.println("Enter a word to be searched in the file: ");
+        System.out.print("Enter a word to be searched in the file: ");
         String wordToSearch = sc.nextLine();
 
         try {
@@ -37,8 +37,14 @@ public class Exercise11 {
         int wordEvidences = 0;
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
-            if (line.contains(wordToSearch)) {
-                wordEvidences += 1;
+            for (int pos = 0; pos < line.toCharArray().length; pos++) {
+                if (line.charAt(pos) == wordToSearch.charAt(0)
+                        && wordToSearch.length() + pos < line.length()) {
+                    String lineSlice = line.substring(pos, pos + wordToSearch.length());
+                    if (lineSlice.equals(wordToSearch)) {
+                        wordEvidences += 1;
+                    }
+                }
             }
         }
         return wordEvidences;

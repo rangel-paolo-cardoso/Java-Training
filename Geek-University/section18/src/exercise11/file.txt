@@ -1,0 +1,5 @@
+This file was created by Rangel Paolo Cardoso.
+The purpose of the file, is to test the program.
+The program will count the number of times a cetain word appear, after the user enter some.
+Let's say the word is "word".
+This file containt the word "word" 5 times.
