@@ -1,0 +1,4 @@
+This is another file to test the program.
+Now, the goal here is to calculate the number of characters, words, and lines.
+Also, the program must be able to count the number of each letter, ignoring those with accents.
+Let's get started!
