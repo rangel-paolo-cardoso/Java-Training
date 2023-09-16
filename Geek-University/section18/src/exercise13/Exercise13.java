@@ -1,6 +1,5 @@
 package exercise13;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
