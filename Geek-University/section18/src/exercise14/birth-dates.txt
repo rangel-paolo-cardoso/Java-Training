@@ -1,0 +1,13 @@
+Kasia,05 07 1990
+Basia,02 08 1992
+Ola,19 09 1995
+Olek,25 10 1996
+Marek,27 11 1998
+Krzysztof,06 12 1996
+Tomczyk,04 01 1991
+Alicja,19 02 1989
+Aneta,21 03 1988
+Edyta,29 04 1993
+Ewelina,04 05 1995
+Konrad,08 08 1992
+Marcin,07 11 1997
