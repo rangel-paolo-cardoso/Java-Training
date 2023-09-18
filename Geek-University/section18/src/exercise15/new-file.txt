@@ -1,0 +1,13 @@
+Name: Kasia, age: 33, status: legal age
+Name: Basia, age: 31, status: legal age
+Name: Ola, age: 28, status: legal age
+Name: Olek, age: 27, status: legal age
+Name: Marek, age: 25, status: legal age
+Name: Krzysztof, age: 13, status: underage
+Name: Tomczyk, age: 18, status: entering legal age
+Name: Alicja, age: 34, status: legal age
+Name: Aneta, age: 35, status: legal age
+Name: Edyta, age: 30, status: legal age
+Name: Ewelina, age: 28, status: legal age
+Name: Konrad, age: 31, status: legal age
+Name: Marcin, age: 26, status: legal age
