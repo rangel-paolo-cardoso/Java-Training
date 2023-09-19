@@ -52,6 +52,19 @@ public class Exercise16 {
         return Integer.toBinaryString(number);
     }
 
+    private static String converToBinaryManually(int number) {
+        StringBuilder numberString = new StringBuilder();
+        int quotient = number / 2;
+        int rest = number % 2;
+        numberString.insert(0, rest);
+        while (quotient > 0) {
+            rest = quotient % 2;
+            quotient /= 2;
+            numberString.insert(0, rest);
+        }
+        return numberString.toString();
+    }
+
     private static Scanner getScanner() {
         return new Scanner(System.in);
     }
