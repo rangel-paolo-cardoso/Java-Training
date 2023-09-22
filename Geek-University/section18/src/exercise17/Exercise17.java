@@ -30,6 +30,8 @@ public class Exercise17 {
         } catch (FileNotFoundException e) {
             System.out.println("It was not possible to read the file.");
             e.printStackTrace();
+        } finally {
+            sc.close();
         }
     }
 
