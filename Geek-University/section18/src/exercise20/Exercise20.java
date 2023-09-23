@@ -79,10 +79,6 @@ public class Exercise20 {
         return studentName + whiteSpaces.toString();
     }
 
-    // private static Scanner getScanner(String path) throws FileNotFoundException {
-    //     return new Scanner(new FileInputStream(path));
-    // }
-
     private static Scanner getScanner() {
         return new Scanner(System.in);
     }
