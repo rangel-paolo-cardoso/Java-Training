@@ -1,0 +1,5 @@
+Name: Kasia                                    Final grade: 9
+Name: Basia                                    Final grade: 10
+Name: Konrad                                   Final grade: 8
+Name: Michał                                   Final grade: 7
+Name: Katarzyna                                Final grade: 8
