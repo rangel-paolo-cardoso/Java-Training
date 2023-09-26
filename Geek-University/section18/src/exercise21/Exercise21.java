@@ -15,8 +15,8 @@ public class Exercise21 {
             byte numberOfStudents = sc.nextByte();
             sc.nextLine();
 
-            System.out.print("Enter the path and name of the new file: ");
-            String fileName = sc.nextLine();
+            System.out.print("Enter the path and name of the new file (save as a binary .bin): ");
+            String filePathAndName = sc.nextLine();
 
             String[] studentsNames = new String[numberOfStudents];
             byte[] studentsGrades = new byte[numberOfStudents];
@@ -31,10 +31,29 @@ public class Exercise21 {
             }
 
             String fileContent = generateFileContent(studentsNames, studentsGrades);
-            writeContentToTheFile(fileName, fileContent);
+            writeContentToTheFile(filePathAndName, fileContent);
+            sc = getScanner(filePathAndName);
+            String bestStudentsInfo = readFileContentAndGetTheBestStudentData(sc);
+            System.out.println(bestStudentsInfo);
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("There was a mistake with the data provided.");
         }
+    }
+
+    private static String readFileContentAndGetTheBestStudentData(Scanner sc) {
+        String lineData;
+        byte grade = 0;
+        String studentName = "";
+        while (sc.hasNextLine()) {
+            lineData = sc.nextLine();
+            byte nextGrade = Byte.parseByte(lineData.split("Final grade: ")[1]);
+            if (nextGrade > grade) {
+                grade = nextGrade;
+                studentName = lineData.split("Final grade:")[0].substring(5).trim();
+            }
+        }
+        return String.format("The best student is %s with the grade of %d", studentName, grade);
     }
 
     private static void writeContentToTheFile(String fileName, String fileContent) {
