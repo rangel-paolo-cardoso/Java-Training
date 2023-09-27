@@ -1,0 +1,1 @@
+Student name: Kasia, grades: 5, 7, 10
