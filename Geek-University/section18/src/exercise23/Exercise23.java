@@ -42,6 +42,7 @@ public class Exercise23 {
                 employeesData.append("\n");
             }
         }
+        sc.close();
         return employeesData.toString();
     }
 
