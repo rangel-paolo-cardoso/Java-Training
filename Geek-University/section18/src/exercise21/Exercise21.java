@@ -45,6 +45,8 @@ public class Exercise21 {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("There was a mistake with the data provided.");
+        } finally {
+            sc.close();
         }
     }
 

@@ -5,9 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author Rangel Paolo Cardoso Bomfim paolorangel1996@outlook.com
@@ -35,6 +32,8 @@ public class Exercise22 {
         } catch (FileNotFoundException e) {
             System.out.println("It was not possible to read the file.");
             e.printStackTrace();
+        } finally {
+            sc.close();
         }
     }
 
