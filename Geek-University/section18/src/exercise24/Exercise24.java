@@ -1,5 +1,7 @@
 package exercise24;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -48,6 +50,18 @@ public class Exercise24 {
                 aux += 1;
             }
         } while (true);
+
+        saveInfoToTheFile(productInfoContainer, sc);
+    }
+
+    private static void saveInfoToTheFile(StringBuilder productInfoContainer, Scanner sc) {
+        String fileNameAndPath = sc.nextLine();
+        try (PrintStream fileWriter = new PrintStream(fileNameAndPath)) {
+            fileWriter.print(productInfoContainer.toString());
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occured while trying to write info to the file.");
+            e.printStackTrace();
+        }
     }
 
     private static void addPorductInfoToTheInfoContainer(
