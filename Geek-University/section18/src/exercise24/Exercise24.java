@@ -1,9 +1,8 @@
 package exercise24;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -18,6 +17,7 @@ public class Exercise24 {
     private static StringBuilder productInfoContainer = new StringBuilder();
     private static Scanner sc = getScanner();
     private static byte aux = 0;
+    private static String path = "./src/exercise24/grocery-store.bin";
 
     public static void main(String[] args) {
 
@@ -25,18 +25,20 @@ public class Exercise24 {
         do {
             printMenu();
             executeOption();
-            System.out.println("Do you want to finish now? (Attention: If you did not save, the information will be lost)");
+            System.out.println(
+                    "Do you want to finish now? (Attention: If you did not save, the information will be lost)");
             System.out.print("Enter Y (Yes) or any another key to continue: ");
             finishExecution = sc.nextLine().toLowerCase().charAt(0) == 'y' ? true : false;
             if (finishExecution) {
                 break;
             }
         } while (true);
+
+        sc.close();
     }
 
     private static void saveInfoToTheFile() {
-        String fileNameAndPath = "./src/exercise24/grocery-store.bin";
-        try (PrintStream fileWriter = new PrintStream(fileNameAndPath)) {
+        try (PrintStream fileWriter = new PrintStream(path)) {
             fileWriter.print(productInfoContainer.toString());
         } catch (FileNotFoundException e) {
             System.out.println("An error occured while trying to write info to the file.");
@@ -65,6 +67,56 @@ public class Exercise24 {
         if (aux == 0) {
             aux += 1;
         }
+        saveInfoToTheFile();
+    }
+
+    private static void removeProductFromStock() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+        System.out.print("Enter the code of the product to be removed: ");
+        String productCodeToBeRemoved = sc.nextLine();
+
+        System.out.print("How many products do you want to remove? ");
+        int productQuantityToBeRemove = sc.nextInt();
+        sc.nextLine();
+
+        String flag = "Code: " + productCodeToBeRemoved;
+
+        int index = 0;
+        for (String productInfo : fileContent) {
+            if (productInfo.contains(flag)) {
+                int productQuantity = Integer.parseInt(productInfo.split("quantity: ")[1]);
+                if (productQuantity > 0 && productQuantity >= productQuantityToBeRemove) {
+                    fileContent[index] = fileContent[index].replace(
+                            "quantity: " + productQuantity,
+                            "quantity: " + (productQuantity - productQuantityToBeRemove));
+                }
+            }
+            index += 1;
+        }
+        productInfoContainer.setLength(0);
+        for (int i = 0; i < fileContent.length; i++) {
+            productInfoContainer.append(fileContent[i]);
+            if (i < fileContent.length - 1) {
+                productInfoContainer.append("\n");
+            }
+        }
+        saveInfoToTheFile();
+    }
+
+    private static String readAndGetFileContent() {
+        StringBuilder fileContent = new StringBuilder();
+        try (Scanner scanner = getScannerFileReader()) {
+            while (scanner.hasNextLine()) {
+                fileContent.append(scanner.nextLine());
+                if (scanner.hasNextLine()) {
+                    fileContent.append("\n");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occured while trying to read the file.");
+            e.printStackTrace();
+        }
+        return fileContent.toString();
     }
 
     private static void executeOption() {
@@ -77,7 +129,7 @@ public class Exercise24 {
                         addProductInformation();
                         break systemLoop;
                     case '2':
-                        System.out.println();
+                        removeProductFromStock();
                         break systemLoop;
                     case '3':
                         saveInfoToTheFile();
@@ -101,10 +153,13 @@ public class Exercise24 {
                 "---------- Menu ----------\n"
                         + "1 - Enter product information\n"
                         + "2 - Remove a product certain product from the stock\n"
-                        + "3 - Save last updates\n"
-                        + "4 - Print general report\n"
-                        + "5 - Print report of non-available products\n"
+                        + "3 - Print general report\n"
+                        + "4 - Print report of non-available products\n"
                         + "Choose your option: ");
+    }
+
+    private static Scanner getScannerFileReader() throws FileNotFoundException {
+        return new Scanner(new FileInputStream(path));
     }
 
     private static Scanner getScanner() {
