@@ -119,6 +119,27 @@ public class Exercise24 {
         return fileContent.toString();
     }
 
+    private static void printGeneralReport() {
+        String fileContent = readAndGetFileContent();
+        System.out.println("---------- General Report ----------");
+        System.out.println(fileContent);
+    }
+
+    private static void printNonAvailableProductsReport() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+        int count = 0;
+        System.out.println("---------- Report of Non-available Products ----------");
+        for (String lineContent : fileContent) {
+            if (Integer.parseInt(lineContent.split("quantity: ")[1]) == 0) {
+                count += 1;
+                System.out.println(lineContent);
+            }
+        }
+        if (count == 0) {
+            System.out.println("__________ There aren't any products missing __________");
+        }
+    }
+
     private static void executeOption() {
         systemLoop: {
             while (true) {
@@ -135,10 +156,10 @@ public class Exercise24 {
                         saveInfoToTheFile();
                         break systemLoop;
                     case '4':
-                        System.out.println();
+                        printGeneralReport();
                         break systemLoop;
                     case '5':
-                        System.out.println();
+                        printNonAvailableProductsReport();
                         break systemLoop;
                     default:
                         System.out.println("\nInvalid option! Try again.");
