@@ -119,6 +119,16 @@ public class Exercise24 {
         return fileContent.toString();
     }
 
+    private static void printGeneralReport() {
+        String fileContent = readAndGetFileContent();
+        System.out.println("---------- General Report ----------");
+        System.out.println(fileContent);
+    }
+
+    private static void printNonAvailableProductsReport() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+    }
+
     private static void executeOption() {
         systemLoop: {
             while (true) {
@@ -135,10 +145,10 @@ public class Exercise24 {
                         saveInfoToTheFile();
                         break systemLoop;
                     case '4':
-                        System.out.println();
+                        printGeneralReport();
                         break systemLoop;
                     case '5':
-                        System.out.println();
+                        printNonAvailableProductsReport();
                         break systemLoop;
                     default:
                         System.out.println("\nInvalid option! Try again.");
