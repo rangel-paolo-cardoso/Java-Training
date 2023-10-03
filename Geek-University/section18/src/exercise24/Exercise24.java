@@ -127,6 +127,17 @@ public class Exercise24 {
 
     private static void printNonAvailableProductsReport() {
         String[] fileContent = readAndGetFileContent().split("\n");
+        int count = 0;
+        System.out.println("---------- Report of Non-available Products ----------");
+        for (String lineContent : fileContent) {
+            if (Integer.parseInt(lineContent.split("quantity: ")[1]) == 0) {
+                count += 1;
+                System.out.println(lineContent);
+            }
+        }
+        if (count == 0) {
+            System.out.println("__________ There aren't any products missing __________");
+        }
     }
 
     private static void executeOption() {
