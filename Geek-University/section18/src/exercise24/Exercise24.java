@@ -2,6 +2,7 @@ package exercise24;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -37,8 +38,12 @@ public class Exercise24 {
         sc.close();
     }
 
-    private static void saveInfoToTheFile() {
-        try (PrintStream fileWriter = new PrintStream(path)) {
+    private static void flushProductContainerInfo() {
+        productInfoContainer.setLength(0);
+    }
+
+    private static void saveInfoToTheFile(boolean edit) {
+        try (PrintStream fileWriter = new PrintStream(new FileOutputStream(path, edit))) {
             fileWriter.print(productInfoContainer.toString());
         } catch (FileNotFoundException e) {
             System.out.println("An error occured while trying to write info to the file.");
@@ -67,7 +72,8 @@ public class Exercise24 {
         if (aux == 0) {
             aux += 1;
         }
-        saveInfoToTheFile();
+        saveInfoToTheFile(true);
+        flushProductContainerInfo();
     }
 
     private static void removeProductFromStock() {
@@ -89,18 +95,22 @@ public class Exercise24 {
                     fileContent[index] = fileContent[index].replace(
                             "quantity: " + productQuantity,
                             "quantity: " + (productQuantity - productQuantityToBeRemove));
+                    break;
+                } else {
+                    System.out.println("It was not possible to remove a product from the stock.");
+                    System.out.println("Tip: You rather remove fewer products.");
                 }
             }
             index += 1;
         }
-        productInfoContainer.setLength(0);
+        flushProductContainerInfo();
         for (int i = 0; i < fileContent.length; i++) {
             productInfoContainer.append(fileContent[i]);
             if (i < fileContent.length - 1) {
                 productInfoContainer.append("\n");
             }
         }
-        saveInfoToTheFile();
+        saveInfoToTheFile(false);
     }
 
     private static String readAndGetFileContent() {
@@ -153,12 +163,9 @@ public class Exercise24 {
                         removeProductFromStock();
                         break systemLoop;
                     case '3':
-                        saveInfoToTheFile();
-                        break systemLoop;
-                    case '4':
                         printGeneralReport();
                         break systemLoop;
-                    case '5':
+                    case '4':
                         printNonAvailableProductsReport();
                         break systemLoop;
                     default:
