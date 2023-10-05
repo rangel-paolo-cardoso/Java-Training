@@ -180,7 +180,7 @@ public class Exercise24 {
         System.out.print(
                 "---------- Menu ----------\n"
                         + "1 - Enter product information\n"
-                        + "2 - Remove a product certain product from the stock\n"
+                        + "2 - Remove a certain product from the stock\n"
                         + "3 - Print general report\n"
                         + "4 - Print report of non-available products\n"
                         + "Choose your option: ");
