@@ -18,6 +18,7 @@ public class Exercise25 {
     private static StringBuilder contacts = new StringBuilder();
     private static Scanner sc = getScanner();
     private static String path = "./src/exercise25/contacts.txt";
+    private static byte aux = 0;
 
     public static void main(String[] args) {
 
@@ -74,7 +75,34 @@ public class Exercise25 {
         }
     }
 
+    private static boolean validateBirthday(String birthday) {
+        return birthday.matches("^\\d{2}/\\d{2}$");
+    }
+
     private static void insertContactInfo() {
+        System.out.print("Enter the name of the contact: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter the contact's phone: ");
+        String phone = sc.nextLine();
+
+        boolean isValidBirthday = false;
+        String birthday;
+        while (true) {
+            System.out.print("Enter the contact's birthday (day and month like dd/mm): ");
+            birthday = sc.nextLine();
+            isValidBirthday = validateBirthday(birthday);
+            if (isValidBirthday) {
+                break;
+            }
+            System.out.println("Invalid date format! Please, try again.");
+        }
+        contacts.append("Name: " + name);
+        contacts.append(", phone: " + phone);
+        contacts.append(", birthday: " + birthday);
+        contacts.append("\n");
+        saveInfoToTheFile(true);
+        flushCachedContats();
     }
 
     private static void removeContactInfo() {
