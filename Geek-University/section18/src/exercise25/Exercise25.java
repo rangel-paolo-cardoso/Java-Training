@@ -25,7 +25,11 @@ public class Exercise25 {
         do {
             printMenu();
             executeOption();
-            break;
+            System.out.println("Do you want to continue (Enter Y to continue) ? ");
+            char systemBreak = sc.nextLine().toLowerCase().charAt(0);
+            if (systemBreak != 'y') {
+                break;
+            }
         } while (true);
 
         sc.close();
@@ -72,6 +76,9 @@ public class Exercise25 {
         } catch (FileNotFoundException e) {
             System.out.println("An error occured while trying to write info to the file.");
             e.printStackTrace();
+        } finally {
+            flushCachedContats();
+            System.out.println("The changes have just gotten updated.");
         }
     }
 
@@ -102,10 +109,21 @@ public class Exercise25 {
         contacts.append(", birthday: " + birthday);
         contacts.append("\n");
         saveInfoToTheFile(true);
-        flushCachedContats();
     }
 
     private static void removeContactInfo() {
+        System.out.print("Enter the phone number of the contact that will be removed: ");
+        String phoneNumber = sc.nextLine();
+        String[] fileContentArray = readAndGetFileContent().split("\n");
+        for (String contact : fileContentArray) {
+            if (!contact.contains(phoneNumber)) {
+                contacts.append(contact);
+                contacts.append("\n");
+            } else {
+                System.out.println("Contact successfully removed!");
+            }
+        }
+        saveInfoToTheFile(false);
     }
 
     private static void searchContactByName() {
@@ -120,14 +138,27 @@ public class Exercise25 {
     private static void listContactsByBirthdaysOfCurrentMonth() {
     }
 
+    private static String readAndGetFileContent() {
+        StringBuilder fileContent = new StringBuilder();
+        try (Scanner scanner = getScannerFileReader()) {
+            while (scanner.hasNextLine()) {
+                fileContent.append(scanner.nextLine());
+                fileContent.append("\n");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return fileContent.toString();
+    }
+
     private static void printMenu() {
         System.out.print(
                 "=============== MENU ===============\n"
                         + "1 - Insert contact info\n"
                         + "2 - Remove contact info\n"
                         + "3 - Seacrh a contact by name\n"
-                        + "4 - List all contacts"
-                        + "5 - List all contact starting with a given letter"
+                        + "4 - List all contacts\n"
+                        + "5 - List all contact starting with a given letter\n"
                         + "6 - List everyone who have a birtday in the current month\n"
                         + "Enter your option: ");
     }
