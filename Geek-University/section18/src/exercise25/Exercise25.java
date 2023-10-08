@@ -127,6 +127,16 @@ public class Exercise25 {
     }
 
     private static void searchContactByName() {
+        System.out.print("Enter the contact name: ");
+        String contactName = sc.nextLine();
+        String[] fileContentArray = readAndGetFileContent().split("\n");
+        for (String contact : fileContentArray) {
+            if (contact.contains(contactName)) {
+                System.out.println("======= Contact Information =======");
+                System.out.println(contact);
+                break;
+            }
+        }
     }
 
     private static void listAllContacts() {
@@ -141,6 +151,7 @@ public class Exercise25 {
     private static String readAndGetFileContent() {
         StringBuilder fileContent = new StringBuilder();
         try (Scanner scanner = getScannerFileReader()) {
+            System.out.println("Test: " + scanner.toString());
             while (scanner.hasNextLine()) {
                 fileContent.append(scanner.nextLine());
                 fileContent.append("\n");
