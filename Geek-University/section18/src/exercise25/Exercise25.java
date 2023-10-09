@@ -25,7 +25,7 @@ public class Exercise25 {
         do {
             printMenu();
             executeOption();
-            System.out.println("Do you want to continue (Enter Y to continue) ? ");
+            System.out.print("\nDo you want to continue (Enter Y to continue) ? ");
             char systemBreak = sc.nextLine().toLowerCase().charAt(0);
             if (systemBreak != 'y') {
                 break;
@@ -140,9 +140,22 @@ public class Exercise25 {
     }
 
     private static void listAllContacts() {
+        String fileContent = readAndGetFileContent();
+        System.out.println("========== Contact List ==========");
+        System.out.println(fileContent);
     }
 
     private static void listContactsByFirstLetterName() {
+        System.out.print("Enter a letter to search contacts with a name starting with it: ");
+        char firstLetter = sc.nextLine().toUpperCase().charAt(0);
+        String[] fileContent = readAndGetFileContent().split("\n");
+        System.out.printf("========== Contacts with a name starting with  ==========\n", firstLetter);
+        for (String contact : fileContent) {
+            String name = contact.split(",")[0].substring(6);
+            if (name.toUpperCase().charAt(0) == firstLetter) {
+                System.out.println(contact);
+            }
+        }
     }
 
     private static void listContactsByBirthdaysOfCurrentMonth() {
