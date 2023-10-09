@@ -25,7 +25,7 @@ public class Exercise25 {
         do {
             printMenu();
             executeOption();
-            System.out.println("Do you want to continue (Enter Y to continue) ? ");
+            System.out.print("Do you want to continue (Enter Y to continue) ? ");
             char systemBreak = sc.nextLine().toLowerCase().charAt(0);
             if (systemBreak != 'y') {
                 break;
@@ -140,6 +140,9 @@ public class Exercise25 {
     }
 
     private static void listAllContacts() {
+        String fileContent = readAndGetFileContent();
+        System.out.println("========== Contact List ==========");
+        System.out.println(fileContent);
     }
 
     private static void listContactsByFirstLetterName() {
