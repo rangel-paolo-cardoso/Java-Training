@@ -159,6 +159,7 @@ public class Exercise25 {
     }
 
     private static void listContactsByBirthdaysOfCurrentMonth() {
+        String[] fileContent = readAndGetFileContent().split("\n");
     }
 
     private static String readAndGetFileContent() {
