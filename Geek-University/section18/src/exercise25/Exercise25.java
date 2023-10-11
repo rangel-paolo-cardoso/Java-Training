@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Scanner;
 
 /**
@@ -18,7 +20,6 @@ public class Exercise25 {
     private static StringBuilder contacts = new StringBuilder();
     private static Scanner sc = getScanner();
     private static String path = "./src/exercise25/contacts.txt";
-    private static byte aux = 0;
 
     public static void main(String[] args) {
 
@@ -160,6 +161,15 @@ public class Exercise25 {
 
     private static void listContactsByBirthdaysOfCurrentMonth() {
         String[] fileContent = readAndGetFileContent().split("\n");
+        Month currentMonth = LocalDate.now().getMonth();
+        String birthMonth;
+        System.out.println("========== Birthdas of the Month ==========");
+        for (String contact : fileContent) {
+            birthMonth = contact.split("birthday: ")[1].split("/")[1];
+            if (Integer.parseInt(birthMonth) == currentMonth.getValue()) {
+                System.out.println(contact);
+            }
+        }
     }
 
     private static String readAndGetFileContent() {
