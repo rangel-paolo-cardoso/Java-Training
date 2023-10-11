@@ -1,0 +1,7 @@
+Name: Rangel, phone: +55, birthday: 06/12
+Name: Kasia, phone: +4877, birthday: 13/01
+Name: Piotr, phone: +4898, birthday: 10/10
+Name: Katarzyna, phone: +4899, birthday: 05/11
+Name: Łukasz, phone: +4876, birthday: 09/02
+Name: Karol, phone: +4855, birthday: 19/05
+Name: OLga, phone: +4832, birthday: 25/07
