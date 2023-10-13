@@ -6,7 +6,8 @@ public class Student {
     private String lastName;
     private short yearOfBirth;
 
-    public Student() {}
+    public Student() {
+    }
 
     public Student(int registration, String lastName, short yearOfBirth) {
         this.registration = registration;
@@ -36,5 +37,12 @@ public class Student {
 
     public void setYearOfBirth(short yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return "Registration: " + registration
+                + ", last name: " + lastName
+                + ", year of birth: " + yearOfBirth;
     }
 }
