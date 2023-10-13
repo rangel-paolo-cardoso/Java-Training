@@ -1,0 +1,2 @@
+Registration: 3, last name: Cardoso, year of birth: 1996
+Registration: 4, last name: Berezińska, year of birth: 1996

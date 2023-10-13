@@ -1,10 +1,14 @@
 package exercise26;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Exercise26 {
+
+    private static String pathFileName = "./src/exercise26/students-info.txt";
     
     public static void main(String[] args) {
         Scanner sc = getScanner();
@@ -13,7 +17,7 @@ public class Exercise26 {
         int numberOfStudents = sc.nextInt();
         sc.nextLine();
 
-        List<Student> students = new ArrayList<>();
+        StringBuilder fileContent = new StringBuilder();
         Student student;
         for (int i = 0; i < numberOfStudents; i++) {
             student = new Student();
@@ -28,11 +32,21 @@ public class Exercise26 {
             student.setYearOfBirth(sc.nextShort());
             sc.nextLine();
 
-            students.add(student);
+            fileContent.append(student);
+            fileContent.append("\n");
         }
+
+        saveInformationToThefile(fileContent);
     }
 
-    private static void saveInformationToThefile() {}
+    private static void saveInformationToThefile(StringBuilder fileContent) {
+        try (PrintStream fileWriter = new PrintStream(pathFileName)) {
+            fileWriter.print(fileContent.toString());
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occured while trying to write info to the file.");
+            e.printStackTrace();
+        }
+    }
 
     private static Scanner getScanner() {
         return new Scanner(System.in);
