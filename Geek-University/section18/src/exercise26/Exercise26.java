@@ -2,10 +2,15 @@ package exercise26;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Rangel Paolo Cardoso Bomfim paolorangel1996@outlook.com
+ * @apiNote 
+ * <p>All the files here contain fake names and numbers, 
+ * except the author's name of course.
+ * </p>
+ */
 public class Exercise26 {
 
     private static String pathFileName = "./src/exercise26/students-info.txt";
