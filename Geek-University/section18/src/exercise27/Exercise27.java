@@ -1,5 +1,8 @@
 package exercise27;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -40,10 +43,9 @@ public class Exercise27 {
     }
 
     private static boolean executeOption() {
-        boolean exit;
+        boolean exit = false;
         systemLoop: {
             while (true) {
-                exit = false;
                 char option = sc.nextLine().toLowerCase().charAt(0);
                 switch (option) {
                     case 'a':
@@ -58,6 +60,7 @@ public class Exercise27 {
                     case 'e':
                         break systemLoop;
                     case 'f':
+                        saveDataToTheDisk();
                         break systemLoop;
                     case 'g':
                         exit = true;
@@ -81,6 +84,25 @@ public class Exercise27 {
             sc.nextLine();
         }
         studentInfo.append("\n");
+    }
+
+    private static void saveDataToTheDisk() {
+        if (!studentInfo.isEmpty()) {
+            try (PrintStream fileWriter = new PrintStream(new FileOutputStream(path, true))) {
+                fileWriter.print(studentInfo.toString());
+                flushInformation();
+                System.out.println("Data saved successfully!");
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occured while trying to save data to the disk.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("There is no data to be saved!");
+        }
+    }
+
+    private static void flushInformation() {
+        studentInfo.setLength(0);
     }
 
     private static Scanner getScanner() {
