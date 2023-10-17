@@ -11,7 +11,9 @@ import java.util.Scanner;
  */
 public class Exercise27 {
 
+    private static StringBuilder studentInfo = new StringBuilder();
     private static Scanner sc = getScanner();
+    private static String path = "./src/exefcise27/class-grades.txt";
 
     public static void main(String[] args) {
         boolean exitSystem = false;
@@ -47,6 +49,7 @@ public class Exercise27 {
                     case 'a':
                         break systemLoop;
                     case 'b':
+                        insertStudentAndGrades();
                         break systemLoop;
                     case 'c':
                         break systemLoop;
@@ -66,6 +69,18 @@ public class Exercise27 {
             }
         }
         return exit;
+    }
+
+    private static void insertStudentAndGrades() {
+        System.out.print("Enter the name of the student: ");
+        studentInfo.append("Name: " + sc.nextLine());
+
+        for (byte i = 0; i < 4; i++) {
+            System.out.printf("Enter the student's %dº grade: ", (i + 1));
+            studentInfo.append(String.format(", Grade %d: ", (i + 1)) + sc.nextInt());
+            sc.nextLine();
+        }
+        studentInfo.append("\n");
     }
 
     private static Scanner getScanner() {
