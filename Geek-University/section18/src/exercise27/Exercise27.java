@@ -1,5 +1,8 @@
 package exercise27;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -11,7 +14,9 @@ import java.util.Scanner;
  */
 public class Exercise27 {
 
+    private static StringBuilder studentInfo = new StringBuilder();
     private static Scanner sc = getScanner();
+    private static String path = "./src/exefcise27/class-grades.txt";
 
     public static void main(String[] args) {
         boolean exitSystem = false;
@@ -38,15 +43,15 @@ public class Exercise27 {
     }
 
     private static boolean executeOption() {
-        boolean exit;
+        boolean exit = false;
         systemLoop: {
             while (true) {
-                exit = false;
                 char option = sc.nextLine().toLowerCase().charAt(0);
                 switch (option) {
                     case 'a':
                         break systemLoop;
                     case 'b':
+                        insertStudentAndGrades();
                         break systemLoop;
                     case 'c':
                         break systemLoop;
@@ -55,6 +60,7 @@ public class Exercise27 {
                     case 'e':
                         break systemLoop;
                     case 'f':
+                        saveDataToTheDisk();
                         break systemLoop;
                     case 'g':
                         exit = true;
@@ -66,6 +72,37 @@ public class Exercise27 {
             }
         }
         return exit;
+    }
+
+    private static void insertStudentAndGrades() {
+        System.out.print("Enter the name of the student: ");
+        studentInfo.append("Name: " + sc.nextLine());
+
+        for (byte i = 0; i < 4; i++) {
+            System.out.printf("Enter the student's %dº grade: ", (i + 1));
+            studentInfo.append(String.format(", Grade %d: ", (i + 1)) + sc.nextInt());
+            sc.nextLine();
+        }
+        studentInfo.append("\n");
+    }
+
+    private static void saveDataToTheDisk() {
+        if (!studentInfo.isEmpty()) {
+            try (PrintStream fileWriter = new PrintStream(new FileOutputStream(path, true))) {
+                fileWriter.print(studentInfo.toString());
+                flushInformation();
+                System.out.println("Data saved successfully!");
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occured while trying to save data to the disk.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("There is no data to be saved!");
+        }
+    }
+
+    private static void flushInformation() {
+        studentInfo.setLength(0);
     }
 
     private static Scanner getScanner() {
