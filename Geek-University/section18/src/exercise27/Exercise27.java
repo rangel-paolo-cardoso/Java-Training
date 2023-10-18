@@ -1,8 +1,10 @@
 package exercise27;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -16,9 +18,10 @@ public class Exercise27 {
 
     private static StringBuilder studentInfo = new StringBuilder();
     private static Scanner sc = getScanner();
-    private static String path = "./src/exefcise27/class-grades.txt";
+    private static String path = "./src/exercise27/class-grades.txt";
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
         boolean exitSystem = false;
         do {
             printMenu();
@@ -31,7 +34,7 @@ public class Exercise27 {
 
     private static void printMenu() {
         System.out.print(
-                "---------- Menu ----------\n"
+                "\n---------- Menu ----------\n"
                         + "a) - Define class infromation\n"
                         + "b) - Insert student and grades\n"
                         + "c) - Show students and averages\n"
@@ -54,6 +57,7 @@ public class Exercise27 {
                         insertStudentAndGrades();
                         break systemLoop;
                     case 'c':
+                        showStudentsAndAverages();
                         break systemLoop;
                     case 'd':
                         break systemLoop;
@@ -101,8 +105,54 @@ public class Exercise27 {
         }
     }
 
+    private static void showStudentsAndAverages() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+        if (fileContent.length < 1) {
+            System.out.println("There is no information to be shown");
+        } else {
+            String aux;
+            int auxIndex;
+            String studentName;
+            float average;
+            int sum = 0;
+            System.out.println("\n========== Students' Averages ==========");
+            for (int i = 0; i < fileContent.length; i++) {
+                studentName = fileContent[i].split(",")[0].substring(6);
+                for (int j = 0; j < 4; j++) {
+                    aux = "Grade " + (j + 1) + ": ";
+                    auxIndex = fileContent[i].indexOf(aux);
+                    sum += Integer.parseInt(
+                            fileContent[i].substring(
+                                    auxIndex + aux.length(),
+                                    auxIndex + aux.length() + 1));
+                }
+                average = sum / 4.0f;
+                System.out.printf("Student name: %s, AVG = %.2f%n", studentName, average);
+                sum = 0;
+            }
+        }
+    }
+
+    private static String readAndGetFileContent() {
+        StringBuilder fileContent = new StringBuilder();
+        try (Scanner fileScanner = getFileScanner()) {
+            while (fileScanner.hasNextLine()) {
+                fileContent.append(fileScanner.nextLine());
+                fileContent.append("\n");
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("It was not possible to read the file.");
+            e.printStackTrace();
+        }
+        return fileContent.toString();
+    }
+
     private static void flushInformation() {
         studentInfo.setLength(0);
+    }
+
+    private static Scanner getFileScanner() throws FileNotFoundException {
+        return new Scanner(new FileInputStream(path));
     }
 
     private static Scanner getScanner() {
