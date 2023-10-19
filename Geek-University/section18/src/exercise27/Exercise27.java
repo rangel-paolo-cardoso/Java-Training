@@ -60,6 +60,7 @@ public class Exercise27 {
                         showStudentsAndAverages();
                         break systemLoop;
                     case 'd':
+                        showApprovedStudents();
                         break systemLoop;
                     case 'e':
                         break systemLoop;
@@ -128,6 +129,36 @@ public class Exercise27 {
                 }
                 average = sum / 4.0f;
                 System.out.printf("Student name: %s, AVG = %.2f%n", studentName, average);
+                sum = 0;
+            }
+        }
+    }
+
+    private static void showApprovedStudents() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+        if (fileContent.length < 1) {
+            System.out.println("There is no information to be shown");
+        } else {
+            String aux;
+            int auxIndex;
+            String studentName;
+            float average;
+            int sum = 0;
+            System.out.println("\n========== Students' Averages ==========");
+            for (int i = 0; i < fileContent.length; i++) {
+                studentName = fileContent[i].split(",")[0].substring(6);
+                for (int j = 0; j < 4; j++) {
+                    aux = "Grade " + (j + 1) + ": ";
+                    auxIndex = fileContent[i].indexOf(aux);
+                    sum += Integer.parseInt(
+                            fileContent[i].substring(
+                                    auxIndex + aux.length(),
+                                    auxIndex + aux.length() + 1));
+                }
+                average = sum / 4.0f;
+                if (average >= 6.0f) {
+                    System.out.printf("Student name: %s, AVG = %.2f%n", studentName, average);
+                }
                 sum = 0;
             }
         }
