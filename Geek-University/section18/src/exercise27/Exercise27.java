@@ -157,7 +157,7 @@ public class Exercise27 {
         } else {
             String studentName;
             float average;
-            System.out.println("\n========== Approved Students' ==========");
+            System.out.println("\n========== Failed Students' ==========");
             for (int i = 0; i < fileContent.length; i++) {
                 studentName = fileContent[i].split(",")[0].substring(6);
                 average = calculateAverage(fileContent[i]);
