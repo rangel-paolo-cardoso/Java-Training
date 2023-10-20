@@ -52,6 +52,7 @@ public class Exercise27 {
                 char option = sc.nextLine().toLowerCase().charAt(0);
                 switch (option) {
                     case 'a':
+                        defineClassInformation();
                         break systemLoop;
                     case 'b':
                         insertStudentAndGrades();
@@ -63,6 +64,7 @@ public class Exercise27 {
                         showApprovedStudents();
                         break systemLoop;
                     case 'e':
+                        showFailedStudents();
                         break systemLoop;
                     case 'f':
                         saveDataToTheDisk();
@@ -77,6 +79,14 @@ public class Exercise27 {
             }
         }
         return exit;
+    }
+
+    private static void defineClassInformation() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+        System.out.printf(
+                "%n========== CLASS INFORMATION ==========%n"
+                        + "%nNumber of students: %d",
+                fileContent.length);
     }
 
     private static void insertStudentAndGrades() {
@@ -111,25 +121,13 @@ public class Exercise27 {
         if (fileContent.length < 1) {
             System.out.println("There is no information to be shown");
         } else {
-            String aux;
-            int auxIndex;
             String studentName;
             float average;
-            int sum = 0;
             System.out.println("\n========== Students' Averages ==========");
             for (int i = 0; i < fileContent.length; i++) {
                 studentName = fileContent[i].split(",")[0].substring(6);
-                for (int j = 0; j < 4; j++) {
-                    aux = "Grade " + (j + 1) + ": ";
-                    auxIndex = fileContent[i].indexOf(aux);
-                    sum += Integer.parseInt(
-                            fileContent[i].substring(
-                                    auxIndex + aux.length(),
-                                    auxIndex + aux.length() + 1));
-                }
-                average = sum / 4.0f;
+                average = calculateAverage(fileContent[i]);
                 System.out.printf("Student name: %s, AVG = %.2f%n", studentName, average);
-                sum = 0;
             }
         }
     }
@@ -139,29 +137,50 @@ public class Exercise27 {
         if (fileContent.length < 1) {
             System.out.println("There is no information to be shown");
         } else {
-            String aux;
-            int auxIndex;
             String studentName;
             float average;
-            int sum = 0;
-            System.out.println("\n========== Students' Averages ==========");
+            System.out.println("\n========== Approved Students' ==========");
             for (int i = 0; i < fileContent.length; i++) {
                 studentName = fileContent[i].split(",")[0].substring(6);
-                for (int j = 0; j < 4; j++) {
-                    aux = "Grade " + (j + 1) + ": ";
-                    auxIndex = fileContent[i].indexOf(aux);
-                    sum += Integer.parseInt(
-                            fileContent[i].substring(
-                                    auxIndex + aux.length(),
-                                    auxIndex + aux.length() + 1));
-                }
-                average = sum / 4.0f;
+                average = calculateAverage(fileContent[i]);
                 if (average >= 6.0f) {
                     System.out.printf("Student name: %s, AVG = %.2f%n", studentName, average);
                 }
-                sum = 0;
             }
         }
+    }
+
+    private static void showFailedStudents() {
+        String[] fileContent = readAndGetFileContent().split("\n");
+        if (fileContent.length < 1) {
+            System.out.println("There is no information to be shown");
+        } else {
+            String studentName;
+            float average;
+            System.out.println("\n========== Failed Students' ==========");
+            for (int i = 0; i < fileContent.length; i++) {
+                studentName = fileContent[i].split(",")[0].substring(6);
+                average = calculateAverage(fileContent[i]);
+                if (average < 6.0f) {
+                    System.out.printf("Student name: %s, AVG = %.2f%n", studentName, average);
+                }
+            }
+        }
+    }
+
+    private static float calculateAverage(String student) {
+        String aux;
+        int auxIndex;
+        int sum = 0;
+        for (int j = 0; j < 4; j++) {
+            aux = "Grade " + (j + 1) + ": ";
+            auxIndex = student.indexOf(aux);
+            sum += Integer.parseInt(
+                    student.substring(
+                            auxIndex + aux.length(),
+                            auxIndex + aux.length() + 1));
+        }
+        return sum / 4.0f;
     }
 
     private static String readAndGetFileContent() {
