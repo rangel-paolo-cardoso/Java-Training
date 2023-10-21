@@ -30,6 +30,7 @@ public class Exercise27 {
                 break;
             }
         } while (true);
+        sc.close();
     }
 
     private static void printMenu() {
