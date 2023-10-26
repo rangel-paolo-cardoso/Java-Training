@@ -93,6 +93,12 @@ public class Exercise29 {
         System.out.print("Enter the sale month: ");
         byte saleMonth = sc.nextByte();
         sc.nextLine();
+
+        fileContent.append("seller_code: " + sellerCode);
+        fileContent.append(", selle name: " + sellerName);
+        fileContent.append(", sale value: " + saleValue);
+        fileContent.append(", sale month: " + saleMonth);
+        writeContentToTheFile(true, path + fileName);
     }
 
     private static void writeContentToTheFile(boolean append, String filePathAndName) {
