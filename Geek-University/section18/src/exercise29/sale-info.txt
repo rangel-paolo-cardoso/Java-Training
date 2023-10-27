@@ -1,0 +1,1 @@
+seller_code: 1, selle name: Karol, sale value: 20.7, sale month: 10
