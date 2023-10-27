@@ -1,5 +1,6 @@
 package exercise29;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -8,8 +9,7 @@ import java.util.Scanner;
 
 public class Exercise29 {
 
-    private static String fileName = null;
-    private static final String path = "./src/exercise29/";
+    private static final String pathAndName = "./src/exercise29/sale-info";
     private static final Scanner sc = getScanner();
     private static final StringBuilder fileContent = new StringBuilder();
 
@@ -43,7 +43,7 @@ public class Exercise29 {
         boolean exit = false;
         systemLoop: {
             while (true) {
-                char option = sc.nextLine().toLowerCase().charAt(0);
+                byte option = sc.nextByte();
                 switch (option) {
                     case 1:
                         createDataFile();
@@ -73,9 +73,7 @@ public class Exercise29 {
 
     private static void createDataFile() {
         fileContent.setLength(0);
-        System.out.print("Enter the file name: ");
-        fileName = sc.nextLine();
-        writeContentToTheFile(false, path + fileName);
+        writeContentToTheFile(false, pathAndName);
     }
 
     private static void insertRecordToTheFile(boolean append) {
@@ -97,13 +95,32 @@ public class Exercise29 {
         fileContent.append("seller_code: " + sellerCode);
         fileContent.append(", selle name: " + sellerName);
         fileContent.append(", sale value: " + saleValue);
-        fileContent.append(", sale month: " + saleMonth);
-        writeContentToTheFile(true, path + fileName);
+        fileContent.append(", sale month: " + saleMonth + "\n");
+        checkSaleInfoExistence(sellerCode, saleMonth);
+        writeContentToTheFile(true, pathAndName);
+    }
+
+    private static void checkSaleInfoExistence(int sellerCode, byte saleMonth) {
+        try {
+            String fileContent = readFileContent(getFileReader());
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occured while trying to read the file.");
+            e.printStackTrace();
+        }
+    }
+
+    private static String readFileContent(Scanner sc) {
+        StringBuilder fileContent = new StringBuilder();
+        while (sc.hasNextLine()) {
+            fileContent.append(sc.nextLine());
+            fileContent.append("\n");
+        }
+        return fileContent.toString();
     }
 
     private static void writeContentToTheFile(boolean append, String filePathAndName) {
         try (PrintStream fileWriter = new PrintStream(new FileOutputStream(filePathAndName + ".txt", append))) {
-            fileWriter.println(fileContent.toString());
+            fileWriter.print(fileContent.toString());
             if (append) {
                 System.out.println("Data saved successfully!");
             } else {
@@ -113,6 +130,10 @@ public class Exercise29 {
             System.out.println("An error occured while trying to save data to the disk.");
             e.printStackTrace();
         }
+    }
+
+    private static Scanner getFileReader() throws FileNotFoundException {
+        return new Scanner(new FileInputStream(pathAndName));
     }
 
     private static Scanner getScanner() {
