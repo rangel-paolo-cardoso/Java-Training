@@ -96,17 +96,35 @@ public class Exercise29 {
         fileContent.append(", selle name: " + sellerName);
         fileContent.append(", sale value: " + saleValue);
         fileContent.append(", sale month: " + saleMonth + "\n");
-        checkSaleInfoExistence(sellerCode, saleMonth);
-        writeContentToTheFile(true, pathAndName);
+        boolean saleExists = checkSaleInfoExistence(sellerCode, saleMonth);
+        if (saleExists) {
+            System.out.printf(
+                "The sale information already exists for seller code %d and sale month %d %n",
+                sellerCode, saleMonth
+            );
+        } else {
+            writeContentToTheFile(true, pathAndName);
+        }
     }
 
-    private static void checkSaleInfoExistence(int sellerCode, byte saleMonth) {
+    private static boolean checkSaleInfoExistence(int sellerCode, byte saleMonth) {
         try {
-            String fileContent = readFileContent(getFileReader());
+            String[] fileContent = readFileContent(getFileReader()).split("\n");
+            if (fileContent.length == 0) {
+                return false;
+            }
+            for (String saleInfo : fileContent) {
+                int code = Integer.parseInt(saleInfo.split(",")[0].split("seller_code: ")[1]);
+                byte month = Byte.parseByte(saleInfo.split(",")[3].split(" sale month: ")[1]);
+                if (code == sellerCode && month == saleMonth) {
+                    return false;
+                }
+            }
         } catch (FileNotFoundException e) {
             System.out.println("An error occured while trying to read the file.");
             e.printStackTrace();
         }
+        return true;
     }
 
     private static String readFileContent(Scanner sc) {
