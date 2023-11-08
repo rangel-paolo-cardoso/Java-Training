@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Exercise29 {
 
-    private static final String pathAndName = "./src/exercise29/sale-info";
+    private static final String pathAndName = "./src/exercise29/sale-info.txt";
     private static final Scanner sc = getScanner();
     private static final StringBuilder fileContent = new StringBuilder();
 
@@ -56,6 +56,7 @@ public class Exercise29 {
                     case 4:
                         break systemLoop;
                     case 5:
+                        printRecords();
                         break systemLoop;
                     case 6:
                         break systemLoop;
@@ -127,6 +128,17 @@ public class Exercise29 {
         return true;
     }
 
+    private static void printRecords() {
+        try {
+            String fileContent = readFileContent(getFileReader());
+            System.out.println("\n========== Recods' information ==========");
+            System.out.print(fileContent);
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occured while trying to read the file.");
+            e.printStackTrace();
+        }
+    }
+
     private static String readFileContent(Scanner sc) {
         StringBuilder fileContent = new StringBuilder();
         while (sc.hasNextLine()) {
@@ -137,7 +149,7 @@ public class Exercise29 {
     }
 
     private static void writeContentToTheFile(boolean append, String filePathAndName) {
-        try (PrintStream fileWriter = new PrintStream(new FileOutputStream(filePathAndName + ".txt", append))) {
+        try (PrintStream fileWriter = new PrintStream(new FileOutputStream(filePathAndName, append))) {
             fileWriter.print(fileContent.toString());
             if (append) {
                 System.out.println("Data saved successfully!");
