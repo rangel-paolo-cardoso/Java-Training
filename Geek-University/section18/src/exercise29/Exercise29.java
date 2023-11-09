@@ -1,5 +1,6 @@
 package exercise29;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -59,6 +60,7 @@ public class Exercise29 {
                         printRecords();
                         break systemLoop;
                     case 6:
+                        deleteDataFile();
                         break systemLoop;
                     case 7:
                         exit = true;
@@ -159,6 +161,19 @@ public class Exercise29 {
         } catch (FileNotFoundException e) {
             System.out.println("An error occured while trying to save data to the disk.");
             e.printStackTrace();
+        }
+    }
+
+    private static void deleteDataFile() {
+        try {
+            File file = new File(pathAndName);
+            if (file.delete()) {
+                System.out.println("\nFile deleted successfully!");
+            } else {
+                System.out.println("\nFailed to delete the file.");
+            }
+        } catch (SecurityException e) {
+            System.out.println("It was not possible to delete the file. Try again later.");
         }
     }
 
